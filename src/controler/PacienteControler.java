@@ -38,5 +38,19 @@ public class PacienteControler {
 		return agregado;
 		
 	}
+	public boolean atenderPaciente(String idconsulta) throws SQLException, IsbnException, CampoVacioException {
+		boolean cambiado=false;
+		String campo="idconsulta";
+		
+		PacienteDao dao=new PacienteDao(conn);
+		String sql="select * from paciente where "+campo+" ='"+idconsulta+"'";
+		List<Paciente> clinica=dao.getClinica(sql);
+		if(clinica.size()!=0&&!clinica.get(0).isAtentido()) {
+			cambiado=dao.atenderPaciente(idconsulta);
+		}
+		
+		return cambiado;
+
+	}
 
 }

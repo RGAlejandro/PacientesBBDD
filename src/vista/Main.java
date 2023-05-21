@@ -112,7 +112,18 @@ public class Main {
 			break;
 			
 			case "5":
-				
+				dbc=new DbConnection();
+				conn=dbc.getConnection();
+				controler=new PacienteControler(conn);
+				String idconsulta="57";
+				try {
+					if(controler.atenderPaciente(idconsulta)) {
+						System.out.println("Paciente atendido...");
+					}
+				} catch (SQLException | IsbnException | CampoVacioException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			break;
 			
 			case "6":

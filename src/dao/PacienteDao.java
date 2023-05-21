@@ -75,4 +75,16 @@ public class PacienteDao {
 		return eliminado;
 		
 	}
+	public boolean atenderPaciente(String idconsulta) throws SQLException {
+		boolean cambiado=false;
+		String sql="Update paciente Set importe=? , atendido=? where idconsulta=?";
+		PreparedStatement pst=conn.prepareStatement(sql);
+		pst.setDouble(1, 100);
+		pst.setBoolean(2, true);
+		pst.setString(3, idconsulta);
+		pst.executeUpdate();
+		cambiado=true;
+		return cambiado;
+		
+	}
 }

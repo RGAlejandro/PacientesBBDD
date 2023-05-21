@@ -65,4 +65,14 @@ public class PacienteDao {
 		return agregado;
 		
 	}
+	public boolean eliminarPaciente(String historiaClinica) throws SQLException {
+		boolean eliminado=false;
+		String campo="historiaClinica";
+		String sql="delete from paciente where "+campo+" ='"+historiaClinica+"'";
+		PreparedStatement pst=conn.prepareStatement(sql);
+		pst.executeUpdate();
+		eliminado=true;
+		return eliminado;
+		
+	}
 }

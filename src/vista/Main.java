@@ -68,7 +68,7 @@ public class Main {
 				dbc=new DbConnection();
 				conn=dbc.getConnection();
 				controler=new PacienteControler(conn);
-				String historiaClinica="978-84-204-4290-7";
+				String historiaClinica="9788420442907";
 				String nombre="Alejandro";
 				String servicio="Lesion de ligamentos";
 				String seguroMedico="SANITAS";
@@ -83,7 +83,18 @@ public class Main {
 			break;
 			
 			case "3":
-				
+				dbc=new DbConnection();
+				conn=dbc.getConnection();
+				controler=new PacienteControler(conn);
+				historiaClinica="9788420442907";
+				try {
+					if(controler.eliminarPaciente(historiaClinica)){
+						System.out.println("Paciente eliminado...");
+					}
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+				}
 			break;
 			
 			case "4":

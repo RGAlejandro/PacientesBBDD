@@ -22,11 +22,19 @@ public class PacienteControler {
 		
 		return dao.getClinica(sql);
 	}
+	
 	public boolean añadirPaciente(String historiaClinica, String nombre, String servicio, String seguroMedico) throws IsbnException, CampoVacioException, SQLException {
 		boolean agregado=false;
 		Paciente paciente=new Paciente(historiaClinica, nombre, servicio, seguroMedico);
 		PacienteDao dao=new PacienteDao(conn);
 		agregado=dao.añadirPaciente(paciente);
+		return agregado;
+		
+	}
+	public boolean eliminarPaciente(String historiaClinica) throws SQLException {
+		boolean agregado=false;
+		PacienteDao dao=new PacienteDao(conn);
+		agregado=dao.eliminarPaciente(historiaClinica);
 		return agregado;
 		
 	}

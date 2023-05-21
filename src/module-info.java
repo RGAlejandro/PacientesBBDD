@@ -6,4 +6,5 @@
  *
  */
 module PacientesBBDD {
+	requires java.sql;
 }

@@ -1,6 +1,7 @@
 package vista;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 import excepciones.CampoVacioException;
 import excepciones.IsbnException;
@@ -14,6 +15,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		/*
 		String historiaClinica="978-84-204-4290-7";
 		String nombre="Alejandro";
 		String servicio="Lesion de ligamentos";
@@ -28,6 +30,48 @@ public class Main {
 			// TODO Auto-generated catch block
 			System.out.println(e.getMessage());
 		}
+		*/
+		Scanner leer=new Scanner(System.in);
+		boolean sigue=true;
+		String opcion="";
+		do {
+			System.out.println("1.-CONSULTA A TODA LA BBDD");
+			System.out.println("2.-AÑADIR A LA BBDD");
+			System.out.println("3.-ELIMINAR A LA BBDD");
+			System.out.println("4.-FILTRADO A LA BBDD");
+			System.out.println("5.-ATENDER PACIENTE EN LA BBDD");
+			System.out.println("6.-APAGAR");
+			opcion=leer.next();
+			switch(opcion) {
+			case "1":
+				
+			break;
+			
+			case "2":
+				
+			break;
+			
+			case "3":
+				
+			break;
+			
+			case "4":
+				
+			break;
+			
+			case "5":
+				
+			break;
+			
+			case "6":
+				
+			break;
+			
+			default:
+				
+			System.out.println("Elige un numero del 1 al 6");	
+			}
+		}while(sigue);
 		
 	}
 

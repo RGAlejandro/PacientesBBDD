@@ -98,7 +98,17 @@ public class Main {
 			break;
 			
 			case "4":
-				
+				dbc=new DbConnection();
+				conn=dbc.getConnection();
+				controler=new PacienteControler(conn);
+				sql="select * from paciente where seguroMedico = 'SANITAS'";
+				try {
+					List<Paciente> clinica=controler.getClinica(sql);
+					mostrar(clinica);
+				} catch (SQLException | IsbnException | CampoVacioException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+				}
 			break;
 			
 			case "5":

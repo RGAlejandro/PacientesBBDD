@@ -43,6 +43,17 @@ public class Paciente {
 		
 	}
 
+	public Paciente(String historiaClinica, String nombre, String servicio, String seguroMedico) throws IsbnException, CampoVacioException {
+		// TODO Auto-generated constructor stub
+		this.setHistoriaClinica(historiaClinica);
+		this.setNombre(nombre);
+		this.setServicio(servicio);
+		this.setSeguroMedico(seguroMedico);
+		this.importe=0;
+		this.atentido=false;
+		this.fechaServicio=LocalDate.now();
+	}
+
 	public String getHistoriaClinica() {
 		return historiaClinica;
 	}

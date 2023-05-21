@@ -22,6 +22,13 @@ public class PacienteControler {
 		
 		return dao.getClinica(sql);
 	}
-	
+	public boolean añadirPaciente(String historiaClinica, String nombre, String servicio, String seguroMedico) throws IsbnException, CampoVacioException, SQLException {
+		boolean agregado=false;
+		Paciente paciente=new Paciente(historiaClinica, nombre, servicio, seguroMedico);
+		PacienteDao dao=new PacienteDao(conn);
+		agregado=dao.añadirPaciente(paciente);
+		return agregado;
+		
+	}
 
 }

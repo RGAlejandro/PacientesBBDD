@@ -65,7 +65,21 @@ public class Main {
 			break;
 			
 			case "2":
-				
+				dbc=new DbConnection();
+				conn=dbc.getConnection();
+				controler=new PacienteControler(conn);
+				String historiaClinica="978-84-204-4290-7";
+				String nombre="Alejandro";
+				String servicio="Lesion de ligamentos";
+				String seguroMedico="SANITAS";
+				try {
+					if(controler.añadirPaciente(historiaClinica,nombre,servicio,seguroMedico)) {
+						System.out.println("Paciente añadido...");
+					}
+				} catch (IsbnException | CampoVacioException | SQLException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+				}
 			break;
 			
 			case "3":

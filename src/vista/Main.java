@@ -1,8 +1,14 @@
 package vista;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import controler.PacienteControler;
+import dao.DbConnection;
 import excepciones.CampoVacioException;
 import excepciones.IsbnException;
 import modelo.Paciente;
@@ -44,7 +50,18 @@ public class Main {
 			opcion=leer.next();
 			switch(opcion) {
 			case "1":
-				
+				Connection conn;
+				DbConnection dbc=new DbConnection();
+				conn=dbc.getConnection();
+				PacienteControler controler=new PacienteControler(conn);
+				String sql="select * from paciente";
+				try {
+					List<Paciente> clinica=controler.getClinica(sql);
+					mostrar(clinica);
+				} catch (SQLException | IsbnException | CampoVacioException e) {
+					// TODO Auto-generated catch block
+					System.out.println(e.getMessage());
+				}
 			break;
 			
 			case "2":
@@ -64,15 +81,21 @@ public class Main {
 			break;
 			
 			case "6":
-				
+				sigue=false;
 			break;
 			
 			default:
-				
 			System.out.println("Elige un numero del 1 al 6");	
 			}
 		}while(sigue);
 		
+	}
+
+	private static void mostrar(List<Paciente> clinica) {
+		// TODO Auto-generated method stub
+		for (Paciente p : clinica) {
+			System.out.println(p);
+		}
 	}
 
 }

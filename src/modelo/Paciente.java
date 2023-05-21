@@ -23,11 +23,24 @@ public class Paciente {
 		
 		this.setHistoriaClinica(historiaClinica);
 		this.setNombre(nombre);
-		this.setServicio(fechaServicio);
+		this.setServicio(servicio);
 		this.setSeguroMedico(seguroMedico);
 		this.setImporte(importe);
 		this.setAtentido(atentido);
 		this.setFechaServicio(fechaServicio);
+	}
+
+	public Paciente(String historiaClinica, String nombre, String servicio, String seguroMedico, double importe,
+			boolean atentido, LocalDate fechaServicio) throws IsbnException, CampoVacioException {
+		// TODO Auto-generated constructor stub
+		this.setHistoriaClinica(historiaClinica);
+		this.setNombre(nombre);
+		this.setServicio(servicio);
+		this.setSeguroMedico(seguroMedico);
+		this.importe=importe;
+		this.atentido=atentido;
+		this.fechaServicio=fechaServicio;
+		
 	}
 
 	public String getHistoriaClinica() {
